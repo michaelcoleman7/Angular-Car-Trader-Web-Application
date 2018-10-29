@@ -2,13 +2,23 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
+//connect to mongoDB
 var mongoose = require('mongoose');
+var mongoDB = 'mongodb://CarUser:cardb1@ds125263.mlab.com:25263/car-db';
+mongoose.connect(mongoDB);
 
-mongoose.connect('mongodb://CarUser:cardb1@ds125263.mlab.com:25263/car-db');
+var Schema = mongoose.Schema;
+var carSchema = new Schema({
+    make : String,
+    model : String,
+    year: Number,
+    price: Number,
+    colour: String,
+    fuel: String,
+    description: String
+})
 
-//Here we are configuring express to use body-parser as middle-ware. 
-app.use(bodyParser.urlencoded({ extended: false })); 
-app.use(bodyParser.json());
+var PostModel = mongoose.model('cars', carSchema);
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -17,9 +27,40 @@ app.use(function(req, res, next) {
     next();
     });
 
+//return JSON data when requested 
+app.get('/createAd', function (req, res) {
 
-app.get('/', function (req, res) {
-   res.send('Hello from Express');
+    PostModel.find(function(err, data){
+        if (err){
+            res.send(err);
+        }
+        res.json(data);
+    });
+})
+
+//Here we are configuring express to use body-parser as middle-ware. 
+app.use(bodyParser.urlencoded({ extended: false })); 
+app.use(bodyParser.json());
+
+app.post('/createAd', function (req, res) {
+    console.log("Make = " + req.body.make);
+    console.log("Model = " + req.body.model);
+    console.log("Year = " + req.body.year);
+    console.log("Price = " + req.body.price);
+    console.log("Colour = " + req.body.colour);
+    console.log("Fuel  = " + req.body.fuel);
+    console.log("Description = " + req.body.description);
+
+    //mongo post
+    PostModel.create({
+        make:req.body.make,
+        model:req.body.model,
+        year: req.body.year,
+        price: req.body.price,
+        colour: req.body.colour,
+        fuel: req.body.fuel,
+        description: req.body.description
+    })
 })
 
 var server = app.listen(8081, function () {
