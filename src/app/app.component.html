@@ -1,14 +1,16 @@
-<mat-toolbar color="primary"> 
-  <mat-toolbar-row>
-          <span class="title-center">
-      Car Trader
-  </span>
-    </mat-toolbar-row>
-  
+<div class = "background">
+    <mat-toolbar color="primary"> 
     <mat-toolbar-row>
+            <span class="title-center">
+        Car Trader
+    </span>
+        </mat-toolbar-row>
+    
+        <mat-toolbar-row>
 
-<button mat-button [routerLink]="['/createAd']" color="Warn">Create Advertisement</button>
-<button mat-button [routerLink]="['/listAds']" color="Warn">View Advertisements</button>
-</mat-toolbar-row>
-</mat-toolbar>
+    <button mat-button [routerLink]="['/createAd']" color="Warn">Create Advertisement</button>
+    <button mat-button [routerLink]="['/listAds']" color="Warn">View Advertisements</button>
+    </mat-toolbar-row>
+    </mat-toolbar>
 <router-outlet></router-outlet>
+</div>

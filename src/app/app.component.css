@@ -5,3 +5,9 @@ mat-form-field,
 textarea {
   width: 100%;
 }
+
+.background{
+  height: 700px;
+  background: url("../../Images/background.jpg");
+  background-position: center; 
+}
