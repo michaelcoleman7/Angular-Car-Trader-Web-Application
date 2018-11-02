@@ -8,18 +8,24 @@ import { FormsModule } from "@angular/forms";
 import { MatInputModule,MatMenuModule,MatCardModule,MatButtonModule,MatIconModule,MatToolbarModule,MatExpansionModule} from '@angular/material';
 import { CreateCarAdComponent } from './create-car-ad/create-car-ad.component';
 import {PostadvertService} from './services/postadvert.service';
+import { ListAdDetailsComponent } from './list-ad-details/list-ad-details.component';
 
 const appRoutes: Routes = [
   {
     path: 'createAd',
     component: CreateCarAdComponent
+  },
+  {
+    path: 'listAds',
+    component: ListAdDetailsComponent
   }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreateCarAdComponent
+    CreateCarAdComponent,
+    ListAdDetailsComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

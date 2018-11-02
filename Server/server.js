@@ -42,6 +42,7 @@ app.get('/createAd', function (req, res) {
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(bodyParser.json());
 
+//Post Json to mongoDB
 app.post('/createAd', function (req, res) {
     console.log("Make = " + req.body.make);
     console.log("Model = " + req.body.model);
@@ -62,6 +63,8 @@ app.post('/createAd', function (req, res) {
         description: req.body.description
     })
 })
+
+
 
 var server = app.listen(8081, function () {
    var host = server.address().address
