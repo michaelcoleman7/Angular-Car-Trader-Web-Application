@@ -1,10 +1,15 @@
 <mat-toolbar color="primary">Current Adverts</mat-toolbar>
 <mat-accordion multi="true" *ngIf="carPosts.length > 0">
-  <mat-expansion-panel [expanded]="true" *ngFor="let cp of carPosts">
+  <mat-expansion-panel *ngFor="let cp of carPosts">
     <mat-expansion-panel-header>
       {{ cp.make }}
     </mat-expansion-panel-header>
     <p>{{ cp.model }}</p>
+    <p>{{ cp.year }}</p>
+    <p>{{ cp.price }}</p>
+    <p>{{ cp.colour }}</p>
+    <p>{{ cp.fuel }}</p>
+    <p>{{ cp.description }}</p>
     <mat-action-row>
       <button mat-button color="primary">EDIT</button>
       <button mat-button color="warn">DELETE</button>
