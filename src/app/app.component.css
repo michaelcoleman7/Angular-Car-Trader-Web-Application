@@ -13,8 +13,8 @@ textarea {
 }
 
 .heading{
-  font-size: 60px;
-  font-family: 'Courier New', Courier, monospace;
+  font-size: 50px;
+  font-family: "Sans-Serif";
   top: 0.5%;
   left: 50%;
   position: absolute;
@@ -26,4 +26,26 @@ textarea {
   height: 60px;
   border-radius: 50px;
   position: absolute;
+}
+
+p{
+  font-family: "Sans-Serif";
+  text-align: center;
+  vertical-align: middle;
+}
+
+button{
+  margin-right: 10%;
+  transform: scale(0.8);
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 20px 20px 20px 20px rgb(199, 197, 197);
+}
+
+.buttons:hover {background-color: rgb(15, 119, 216)}
+
+.buttons:active {
+  box-shadow: 0 5px #666;
+  transform: scale(0.6);
 }

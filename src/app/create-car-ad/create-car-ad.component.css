@@ -10,7 +10,9 @@
     transform: translate(-50%, -50%);
     box-sizing: border-box;
     padding: 30px 70px;
-    font-family: cursive;
+    font-family: "Sans-Serif";
+    font-size: 15px;
+    position: absolute;
 }
 
 .sellerlogo{

@@ -1,15 +1,15 @@
 <div class = "background">
     <mat-toolbar color="primary"> 
-    <mat-toolbar-row>
-            <img src = "../assets/Images/logo.jpg" class="logo">
-            <p class="heading">Car Trader</p>
-        </mat-toolbar-row>
-    
         <mat-toolbar-row>
-
-    <button mat-button [routerLink]="['/createAd']" color="Warn">Create Advertisement</button>
-    <button mat-button [routerLink]="['/listAds']" color="Warn">View Advertisements</button>
-    </mat-toolbar-row>
+            <img src = "../assets/Images/logo.jpg" class="logo">
+            <p class="heading">CAR TRADER</p>
+        </mat-toolbar-row>
+        <mat-toolbar-row>
+            <button mat-raised-button [routerLink]="['/createAd']" color="primary" class = "buttons">
+            <p><mat-icon>attach_money</mat-icon>&nbsp;&nbsp; SELL YOUR CAR&nbsp;&nbsp;<mat-icon>attach_money</mat-icon></p></button>
+            <button mat-raised-button [routerLink]="['/listAds']" color="primary" class = "buttons">
+            <p><mat-icon>directions_car</mat-icon>&nbsp;&nbsp;VIEW CARS&nbsp;&nbsp;<mat-icon>directions_car</mat-icon></p></button>
+        </mat-toolbar-row>
     </mat-toolbar>
 <router-outlet></router-outlet>
 </div>

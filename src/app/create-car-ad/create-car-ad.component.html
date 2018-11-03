@@ -2,13 +2,13 @@
     <img class = "sellerlogo">
     <mat-card>
       <form (submit)="onAddPost(postForm)" #postForm="ngForm">
-          Make: <input type="text" name="make" placeholder="e.g. Toyota" ngModel required minlength="4" #make="ngModel">
-          Model: <input type="text" name="model" placeholder="e.g. Corolla" ngModel required minlength="2" #model="ngModel">
-          Year: <br><input type="text" name="year" placeholder="e.g. 2015" ngModel required minlength="4" #year="ngModel">
-          Price: <input type="text" name="price" placeholder="e.g. 12000" ngModel required minlength="1" #price="ngModel">
-          Colour: <input type="text" name="colour" placeholder="e.g. Black" ngModel required minlength="3" #colour="ngModel">
-          Fuel(Petrol/Diesel): <input type="text" name="fuel" placeholder="e.g. Diesel" ngModel required minlength="6" #fuel="ngModel">
-          Description: <textarea rows="4" name="description" placeholder="Description of your car... e.g. condition, number of owners, miles driven etc.." ngModel required #description="ngModel"></textarea>
+          MAKE: <input type="text" name="make" placeholder="e.g. Toyota" ngModel required minlength="4" #make="ngModel">
+          MODEL: <input type="text" name="model" placeholder="e.g. Corolla" ngModel required minlength="2" #model="ngModel">
+          YEAR: <br><input type="text" name="year" placeholder="e.g. 2015" ngModel required minlength="4" #year="ngModel">
+          PRICE: <input type="text" name="price" placeholder="e.g. 12000" ngModel required minlength="1" #price="ngModel">
+          COLOUR: <input type="text" name="colour" placeholder="e.g. Black" ngModel required minlength="3" #colour="ngModel">
+          FUEL(PETROL/DIESEL): <input type="text" name="fuel" placeholder="e.g. Diesel" ngModel required minlength="6" #fuel="ngModel">
+          DESCRIPTION: <textarea rows="4" name="description" placeholder="Description of your car... e.g. condition, number of owners, miles driven etc.." ngModel required #description="ngModel"></textarea>
         <button mat-raised-button type="submit">List Advertisement</button>
       </form>
     </mat-card>
