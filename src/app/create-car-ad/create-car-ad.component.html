@@ -2,6 +2,9 @@
     <img class = "sellerlogo">
     <mat-card>
       <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+          NAME: <input type="text" name="name" placeholder="e.g. Matt Smith" ngModel required minlength="2" #name="ngModel">
+          PASSWORD: <input type="password" name="password" placeholder="your password" ngModel required minlength="4" #password="ngModel">
+          PHONE NUMBER: <input type="text" name="phone" placeholder="e.g. 0875544978" ngModel required minlength="8" #phone="ngModel">
           MAKE: <input type="text" name="make" placeholder="e.g. Toyota" ngModel required minlength="4" #make="ngModel">
           MODEL: <input type="text" name="model" placeholder="e.g. Corolla" ngModel required minlength="2" #model="ngModel">
           YEAR: <br><input type="text" name="year" placeholder="e.g. 2015" ngModel required minlength="4" #year="ngModel">

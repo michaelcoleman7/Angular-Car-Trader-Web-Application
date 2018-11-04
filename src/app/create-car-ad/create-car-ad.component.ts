@@ -14,7 +14,7 @@ export class CreateCarAdComponent implements OnInit {
 
   onAddPost(form: NgForm) {
 
-    this.service.addPost(form.value.make, form.value.model, form.value.year, form.value.price, 
+    this.service.addPost(form.value.name, form.value.password,form.value.phoneNumber, form.value.make, form.value.model, form.value.year, form.value.price, 
       form.value.colour, form.value.fuel, form.value.description).subscribe();
     
     console.log(form.value);

@@ -19,8 +19,8 @@ export class PostadvertService {
     return [...this.posts];
   }
 
-  addPost(make: string, model: string, year: number, price: number, colour: string, fuel: string, description: string): Observable<any> {
-    const post: Car = {make: make, model: model, year: year, price: price, colour: colour, fuel: fuel, description: description};
+  addPost(name: string, password:string,phoneNumber: number, make: string, model: string, year: number, price: number, colour: string, fuel: string, description: string): Observable<any> {
+    const post: Car = {name: name, password:password,phoneNumber:phoneNumber, make: make, model: model, year: year, price: price, colour: colour, fuel: fuel, description: description};
     return this.http.post("http://localhost:8081/createAd",post);
   }
 }

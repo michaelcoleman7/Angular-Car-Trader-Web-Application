@@ -9,6 +9,9 @@ mongoose.connect(mongoDB);
 
 var Schema = mongoose.Schema;
 var carSchema = new Schema({
+    name: String,
+    password: String,
+    phoneNumber: Number,
     make : String,
     model : String,
     year: Number,
@@ -44,6 +47,8 @@ app.use(bodyParser.json());
 
 //Post Json to mongoDB
 app.post('/createAd', function (req, res) {
+    console.log("Name = " + req.body.name);
+    console.log("Password = " + req.body.password);
     console.log("Make = " + req.body.make);
     console.log("Model = " + req.body.model);
     console.log("Year = " + req.body.year);
@@ -54,6 +59,9 @@ app.post('/createAd', function (req, res) {
 
     //mongo post
     PostModel.create({
+        name: req.body.name,
+        password: req.body.password,
+        phoneNumber: req.body.phoneNumber
         make:req.body.make,
         model:req.body.model,
         year: req.body.year,
