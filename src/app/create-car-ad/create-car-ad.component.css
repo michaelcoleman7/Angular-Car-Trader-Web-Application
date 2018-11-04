@@ -11,7 +11,7 @@
     box-sizing: border-box;
     padding: 30px 70px;
     font-family: "Sans-Serif";
-    font-size: 15px;
+    font-size: 12px;
     position: absolute;
 }
 
@@ -39,7 +39,7 @@ textarea {
     border-bottom: 1px solid #fff;
     background: transparent;
     outline: none;
-    height: 70px;
+    height: 30px;
 }
 
 button {
@@ -47,3 +47,9 @@ button {
     background: rgb(0, 255, 191);
     border-radius: 20px;
 }
+
+button:hover {background-color: rgb(5, 207, 96)}
+
+button:active {
+    transform: scale(0.8);
+  }
