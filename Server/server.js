@@ -61,7 +61,7 @@ app.post('/createAd', function (req, res) {
     PostModel.create({
         name: req.body.name,
         password: req.body.password,
-        phoneNumber: req.body.phoneNumber
+        phoneNumber: req.body.phoneNumber,
         make:req.body.make,
         model:req.body.model,
         year: req.body.year,

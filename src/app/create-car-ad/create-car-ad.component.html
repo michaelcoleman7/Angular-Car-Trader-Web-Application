@@ -2,16 +2,36 @@
     <img class = "sellerlogo">
     <mat-card>
       <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+        <mat-form-field>
           NAME: <input type="text" name="name" placeholder="e.g. Matt Smith" ngModel required minlength="2" #name="ngModel">
+        </mat-form-field>
+        <mat-form-field>
           PASSWORD: <input type="password" name="password" placeholder="your password" ngModel required minlength="4" #password="ngModel">
+        </mat-form-field>
+        <mat-form-field>
           PHONE NUMBER: <input type="text" name="phone" placeholder="e.g. 0875544978" ngModel required minlength="8" #phone="ngModel">
+        </mat-form-field>
+        <mat-form-field>
           MAKE: <input type="text" name="make" placeholder="e.g. Toyota" ngModel required minlength="4" #make="ngModel">
+        </mat-form-field>
+        <mat-form-field>
           MODEL: <input type="text" name="model" placeholder="e.g. Corolla" ngModel required minlength="2" #model="ngModel">
+        </mat-form-field>
+        <mat-form-field>
           YEAR: <br><input type="text" name="year" placeholder="e.g. 2015" ngModel required minlength="4" #year="ngModel">
+        </mat-form-field>
+        <mat-form-field>
           PRICE: <input type="text" name="price" placeholder="e.g. 12000" ngModel required minlength="1" #price="ngModel">
+        </mat-form-field>
+        <mat-form-field>
           COLOUR: <input type="text" name="colour" placeholder="e.g. Black" ngModel required minlength="3" #colour="ngModel">
+        </mat-form-field>
+        <mat-form-field>
           FUEL(PETROL/DIESEL): <input type="text" name="fuel" placeholder="e.g. Diesel" ngModel required minlength="6" #fuel="ngModel">
+        </mat-form-field>
+        <mat-form-field>
           DESCRIPTION: <textarea rows="4" name="description" placeholder="Description of your car... e.g. condition, number of owners, miles driven etc.." ngModel required #description="ngModel"></textarea>
+        </mat-form-field>
         <button mat-raised-button type="submit">List Advertisement</button>
       </form>
     </mat-card>
