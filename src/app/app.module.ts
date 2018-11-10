@@ -9,6 +9,7 @@ import { MatInputModule,MatMenuModule,MatCardModule,MatButtonModule,MatIconModul
 import { CreateCarAdComponent } from './create-car-ad/create-car-ad.component';
 import {PostadvertService} from './services/postadvert.service';
 import { ListAdDetailsComponent } from './list-ad-details/list-ad-details.component';
+import { EditCarAdComponent } from './edit-car-ad/edit-car-ad.component';
 
 const appRoutes: Routes = [
   {
@@ -18,6 +19,10 @@ const appRoutes: Routes = [
   {
     path: 'listAds',
     component: ListAdDetailsComponent
+  },
+  {
+    path: 'editAds',
+    component: EditCarAdComponent
   }
 ];
 
@@ -25,7 +30,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     CreateCarAdComponent,
-    ListAdDetailsComponent
+    ListAdDetailsComponent,
+    EditCarAdComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
