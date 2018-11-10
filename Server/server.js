@@ -25,13 +25,14 @@ var PostModel = mongoose.model('cars', carSchema);
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS")
     res.header("Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept");
     next();
     });
 
 //return JSON data when requested 
-app.get('/createAd', function (req, res) {
+app.get('/posts', function (req, res) {
 
     PostModel.find(function(err, data){
         if (err){
@@ -46,7 +47,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //Post Json to mongoDB
-app.post('/createAd', function (req, res) {
+app.post('/posts', function (req, res) {
     console.log("Name = " + req.body.name);
     console.log("Password = " + req.body.password);
     console.log("Make = " + req.body.make);
@@ -70,7 +71,19 @@ app.post('/createAd', function (req, res) {
         fuel: req.body.fuel,
         description: req.body.description
     })
+
+    res.send("Car added Successfully");
 })
+
+app.delete('/posts/:id', function(req,res){
+    console.log(req.params.id);
+    PostModel.deleteOne({ _id: req.params.id },
+    function (err,data) {
+        if(err)
+            res.send(err);
+        res.send(data);
+    });
+});
 
 
 
