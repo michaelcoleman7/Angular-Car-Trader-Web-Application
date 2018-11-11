@@ -1,19 +1,18 @@
-<mat-toolbar color="warn">Current Adverts</mat-toolbar>
+<mat-toolbar color="warn">Your Advertisements</mat-toolbar>
 <mat-accordion multi="true" *ngIf="carPosts.length > 0">
   <mat-expansion-panel *ngFor="let cp of carPosts">
     <mat-expansion-panel-header>
-      {{ cp.make }}
+      {{ cp.make }} {{ cp.model }}
     </mat-expansion-panel-header>
-      <p>{{ cp.model }}</p>
-      <p>{{ cp.year }}</p>
-      <p>{{ cp.price }}</p>
-      <p>{{ cp.colour }}</p>
-      <p>{{ cp.fuel }}</p>
-      <p>{{ cp.description }}</p>
+      <p>Year: {{ cp.year }}</p>
+      <p>Price: {{ cp.price }}</p>
+      <p>Colour: {{ cp.colour }}</p>
+      <p>Fuel: {{ cp.fuel }}</p>
+      <p>Contact Number: {{ cp.phoneNumber }}</p>
     <mat-action-row>
       <button mat-button color="primary">EDIT</button>
       <button (click)="onDelete(cp._id)" mat-button color="warn">DELETE</button>
     </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion>
-<p *ngIf="carPosts.length <= 0">No Adverts listed yet!</p>
+<p *ngIf="carPosts.length <= 0">No Adverts listed yet!</p> 
