@@ -1,0 +1,15 @@
+<div class = "formfield">
+  <img class = "sellerlogo">
+  <mat-card>
+        <form #postForm="ngForm">
+          <mat-form-field>
+            <p>E-MAIL: <input matInput type="text" name="email" ngModel required minlength="2" #email="ngModel"></p>
+          </mat-form-field>
+          <mat-form-field>
+            <p>PASSWORD: <input matInput type="password" name="pw" ngModel required minlength="4" #pw="ngModel"></p>
+          </mat-form-field>
+        <button mat-raised-button type="submit">Login</button>
+        </form>
+  </mat-card>
+</div>
+
