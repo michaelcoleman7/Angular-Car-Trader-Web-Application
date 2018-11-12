@@ -11,14 +11,14 @@ var Schema = mongoose.Schema;
 var carSchema = new Schema({
     name: String,
     password: String,
-    phoneNumber: Number,
+    phone: Number,
+    email: String,
     make : String,
     model : String,
     year: Number,
     price: Number,
     colour: String,
-    fuel: String,
-    description: String
+    fuel: String
 })
 
 var PostModel = mongoose.model('cars', carSchema);
@@ -50,26 +50,27 @@ app.use(bodyParser.json());
 app.post('/posts', function (req, res) {
     console.log("Name = " + req.body.name);
     console.log("Password = " + req.body.password);
+    console.log("phone = " + req.body.phone);
+    console.log("email = " + req.body.email);
     console.log("Make = " + req.body.make);
     console.log("Model = " + req.body.model);
     console.log("Year = " + req.body.year);
     console.log("Price = " + req.body.price);
     console.log("Colour = " + req.body.colour);
     console.log("Fuel  = " + req.body.fuel);
-    console.log("Description = " + req.body.description);
 
     //mongo post
     PostModel.create({
         name: req.body.name,
         password: req.body.password,
-        phoneNumber: req.body.phoneNumber,
+        phone: req.body.phone,
+        email: req.body.email,
         make:req.body.make,
         model:req.body.model,
         year: req.body.year,
         price: req.body.price,
         colour: req.body.colour,
-        fuel: req.body.fuel,
-        description: req.body.description
+        fuel: req.body.fuel
     })
 
     res.send("Car added Successfully");

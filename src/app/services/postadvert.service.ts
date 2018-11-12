@@ -19,11 +19,11 @@ export class PostadvertService {
     return [...this.posts];
   }
 
-  addPost(name: string, password:string,phoneNumber: number,
-     make: string, model: string, year: number, price: number, 
-     colour: string, fuel: string, description: string): Observable<any> {
-    const post: Car = {name: name, password:password,phoneNumber:phoneNumber, make: make,
-       model: model, year: year, price: price, colour: colour, fuel: fuel, description: description};
+  addPost(name: string, password:string,phone: number,
+    email: string,make: string, model: string, year: number, price: number, 
+     colour: string, fuel: string): Observable<any> {
+    const post: Car = {name: name, password:password,phone:phone, email: email, make: make,
+       model: model, year: year, price: price, colour: colour, fuel: fuel};
     return this.http.post("http://localhost:8081/posts",post);
   }
 
