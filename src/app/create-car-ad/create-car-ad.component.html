@@ -4,14 +4,14 @@
       <form (submit)="onAddPost(postForm)" #postForm="ngForm">
           NAME: <input  type="text" name="name" placeholder="e.g. Matt Smith" ngModel required minlength="2" #name="ngModel">
           PASSWORD: <input  type="password" name="password" placeholder="your password" ngModel required minlength="4" #password="ngModel">
-          PHONE NUMBER: <input  type="text" name="phone" placeholder="e.g. 0875544978" ngModel required minlength="8" #phone="ngModel">
+          PHONE NUMBER: <input  type="text" name="phone" placeholder="e.g. 0875544978" ngModel required minlength="5" #phone="ngModel">
+          E-MAIL: <input  type="text" name="email" placeholder="e.g. hello@123.com" ngModel required minlength="5" #email="ngModel">
           MAKE: <input  type="text" name="make" placeholder="e.g. Toyota" ngModel required minlength="4" #make="ngModel">
           MODEL: <input  type="text" name="model" placeholder="e.g. Corolla" ngModel required minlength="2" #model="ngModel">
           YEAR: <br><input  type="text" name="year" placeholder="e.g. 2015" ngModel required minlength="4" #year="ngModel">
           PRICE: <input type="text" name="price" placeholder="e.g. 12000" ngModel required minlength="1" #price="ngModel">
           COLOUR: <input  type="text" name="colour" placeholder="e.g. Black" ngModel required minlength="3" #colour="ngModel">
           FUEL(PETROL/DIESEL): <input  type="text" name="fuel" placeholder="e.g. Diesel" ngModel required minlength="6" #fuel="ngModel">
-          DESCRIPTION: <textarea rows="4" name="description" placeholder="Description of your car... e.g. condition, number of owners, miles driven etc.." ngModel required #description="ngModel"></textarea>
         <button mat-raised-button type="submit">List Advertisement</button>
       </form>
     </mat-card>

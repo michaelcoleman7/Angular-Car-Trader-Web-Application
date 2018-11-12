@@ -3,12 +3,12 @@
   <mat-card>
         <form #postForm="ngForm">
           <mat-form-field>
-            <p>E-MAIL: <input matInput type="text" name="email" ngModel required minlength="2" #email="ngModel"></p>
+            <p>E-MAIL: <input matInput type="text" #email></p>
           </mat-form-field>
           <mat-form-field>
-            <p>PASSWORD: <input matInput type="password" name="pw" ngModel required minlength="4" #pw="ngModel"></p>
+            <p>PASSWORD: <input matInput type="password" #password></p>
           </mat-form-field>
-        <button mat-raised-button type="submit">Login</button>
+        <button mat-raised-button type="submit" (click) = 'verifyUser(email.value, password.value)'>Login</button>
         </form>
   </mat-card>
 </div>

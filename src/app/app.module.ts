@@ -24,6 +24,10 @@ const appRoutes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'editAd/:email',
+    component: EditCarAdComponent
   }
 ];
 
