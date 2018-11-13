@@ -9,4 +9,5 @@ export interface Car {
     colour: string;
     fuel: string;
     email: string;
+    photo: string;
   }
