@@ -18,7 +18,8 @@ var carSchema = new Schema({
     year: Number,
     price: Number,
     colour: String,
-    fuel: String
+    fuel: String,
+    photo: String
 })
 
 var PostModel = mongoose.model('cars', carSchema);
@@ -32,7 +33,7 @@ app.use(function(req, res, next) {
     });
 
 //return JSON data when requested 
-app.get('/posts', function (req, res) {
+app.get('/getallcars', function (req, res) {
 
     PostModel.find(function(err, data){
         if (err){
@@ -43,12 +44,22 @@ app.get('/posts', function (req, res) {
 })
 
 //Here we are configuring express to use body-parser as middle-ware. 
-app.use(bodyParser.urlencoded({ extended: false })); 
-app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: false })); 
+//app.use(bodyParser.json());
+
+//allow for image to be passed in json as base64
+app.use(bodyParser.json({
+    limit: "50mb"
+}));
+app.use(bodyParser.urlencoded({
+    limit: "50mb",
+    extended: false,
+    parameterLimit: 50000
+}));
 
 //Post Json to mongoDB
-app.post('/posts', function (req, res) {
-    console.log("Name = " + req.body.name);
+app.post('/postcar', function (req, res) {
+    /*console.log("Name = " + req.body.name);
     console.log("Password = " + req.body.password);
     console.log("phone = " + req.body.phone);
     console.log("email = " + req.body.email);
@@ -58,6 +69,7 @@ app.post('/posts', function (req, res) {
     console.log("Price = " + req.body.price);
     console.log("Colour = " + req.body.colour);
     console.log("Fuel  = " + req.body.fuel);
+    //console.log("Photo  = " + req.body.photo);*/
 
     //mongo post
     PostModel.create({
@@ -70,13 +82,16 @@ app.post('/posts', function (req, res) {
         year: req.body.year,
         price: req.body.price,
         colour: req.body.colour,
-        fuel: req.body.fuel
+        fuel: req.body.fuel,
+        photo: req.body.photo
+    },function (err) {
+        if(err)
+            res.send(err);
     })
-
     res.send("Car added Successfully");
 })
 
-app.delete('/posts/:id', function(req,res){
+app.delete('/deletecar/:id', function(req,res){
     console.log(req.params.id);
     PostModel.deleteOne({ _id: req.params.id },
     function (err,data) {
@@ -85,8 +100,6 @@ app.delete('/posts/:id', function(req,res){
         res.send(data);
     });
 });
-
-
 
 var server = app.listen(8081, function () {
    var host = server.address().address
