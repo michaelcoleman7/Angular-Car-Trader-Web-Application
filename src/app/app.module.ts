@@ -26,7 +26,7 @@ const appRoutes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'editAd/:email',
+    path: 'editAd/:email',//path with parameter
     component: EditCarAdComponent
   }
 ];

@@ -2,7 +2,7 @@
 <mat-accordion multi="true" *ngIf="userPosts.length > 0">
   <mat-expansion-panel *ngFor="let up of userPosts">
     <mat-expansion-panel-header>
-      {{ up.make }} {{ up.model }}
+      {{ up.make }} {{ up.model }}  EMAIL: {{ up.email }}
     </mat-expansion-panel-header>
       <p>Year: {{ up.year }}</p>
       <p>Price: {{ up.price }}</p>
