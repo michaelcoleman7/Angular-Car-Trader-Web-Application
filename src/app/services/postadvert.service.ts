@@ -10,7 +10,7 @@ export class PostadvertService {
   constructor(private http: HttpClient) { }
   
     getPostsData(): Observable<any> {
-      return this.http.get("http://localhost:8081/posts");
+      return this.http.get("http://localhost:8081/getallcars");
     }
 
   private posts: Car[] = [];
@@ -21,13 +21,13 @@ export class PostadvertService {
 
   addPost(name: string, password:string,phone: number,
     email: string,make: string, model: string, year: number, price: number, 
-     colour: string, fuel: string): Observable<any> {
+     colour: string, fuel: string,photo: string): Observable<any> {
     const post: Car = {name: name, password:password,phone:phone, email: email, make: make,
-       model: model, year: year, price: price, colour: colour, fuel: fuel};
-    return this.http.post("http://localhost:8081/posts",post);
+       model: model, year: year, price: price, colour: colour, fuel: fuel,photo: photo};
+    return this.http.post("http://localhost:8081/postcar",post);
   }
 
   deletePost(id: string):Observable<any>{
-    return this.http.delete("http://localhost:8081/posts/"+id);
+    return this.http.delete("http://localhost:8081/deletecar/"+id);
   }
 }
