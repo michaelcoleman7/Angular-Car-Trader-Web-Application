@@ -1,1 +1,8 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.image{
+    max-width: 600px;
+    max-height: 600px;
+    min-width: 100px;
+    min-height: 100px;
+}

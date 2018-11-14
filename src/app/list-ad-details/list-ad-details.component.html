@@ -9,7 +9,7 @@
       <p>Colour: {{ cp.colour }}</p>
       <p>Fuel: {{ cp.fuel }}</p>
       <p>Contact Number: {{ cp.phone }}</p>
-      <img src="{{'data:image/jpg;base64,' + cp.photo}}"/>
+      <img class = "image" src="{{'data:image/jpg;base64,' + cp.photo}}"/>
     <mat-action-row>
       <button mat-button color="primary">EDIT</button>
       <button (click)="onDelete(cp._id)" mat-button color="warn">DELETE</button>
