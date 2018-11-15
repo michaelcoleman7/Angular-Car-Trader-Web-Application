@@ -1,0 +1,24 @@
+<mat-toolbar color="warn">Current Adverts</mat-toolbar>
+<mat-accordion multi="true" *ngIf="userPosts.length > 0">
+  <mat-expansion-panel *ngFor="let up of userPosts">
+    <mat-expansion-panel-header>
+      {{ up.make }} {{ up.model }}
+    </mat-expansion-panel-header>
+      <img class = "image" src="{{'data:image/jpg;base64,' + up.photo}}"/>
+      <div class="info">
+        <p><b>Year:</b> {{ up.year }}</p>
+        <p><b>Price:</b> {{ up.price }}</p>
+        <p><b>Colour</b> {{ up.colour }}</p>
+        <p><b>Fuel:</b> {{ up.fuel }}</p>
+        <br>
+        <p><b><u>Seller Information</u></b></p>
+        <p><mat-icon>account_box</mat-icon>&nbsp;<b>Seller Name:</b> {{ up.name }}</p>
+        <p><mat-icon>phone</mat-icon>&nbsp;<b>Contact Number:</b> {{ up.phone }}</p>
+    </div>
+    <mat-action-row>
+      <button mat-button [routerLink]="['/editAds', up._id]" color="primary">EDIT</button>
+      <button (click)="onDelete(up._id)" mat-button color="warn">DELETE</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<p *ngIf="userPosts.length <= 0">Loading Adverts....please wait!!!</p>  

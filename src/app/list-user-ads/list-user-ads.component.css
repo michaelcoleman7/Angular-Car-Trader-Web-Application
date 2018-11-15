@@ -1,0 +1,18 @@
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.image{
+    float: left;
+    max-width: 680px;
+    max-height: 680px;
+    min-width: 100px;
+    min-height: 100px;
+    border-radius: 20px;
+    margin-left: 20px;
+    margin-right: 30px;
+}
+
+.info{
+    float: left;
+    font-size: 25px;
+    font-family: sans-serif;
+}
