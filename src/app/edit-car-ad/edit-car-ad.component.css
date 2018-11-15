@@ -1,1 +1,63 @@
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+.formfield{
+    width: 300px;
+    height: 500px;
+    border-radius: 10%;
+    background: #0a5cd8be;
+    color: #fff;
+    top: 450px;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 30px 70px;
+    font-family: "Sans-Serif";
+    font-size: 12px;
+    position: absolute;
+}
+
+.sellerlogo{
+    background: url("../../assets/Images/update.jpg");
+    background-position: center;
+    background-size: 100px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -10%;
+    left: calc(50% - 50px);
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 20px;
+}
+textarea {
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 30px;
+}
+
+button {
+    border: none;
+    background: rgb(0, 255, 191);
+    border-radius: 20px;
+    left: calc(50% - 50px);
+}
+
+button:hover {background-color: rgb(5, 207, 96)}
+
+button:active {
+    transform: scale(0.8);
+}
+
+.file{
+    border: none;;
+    background: transparent;
+    outline: none;
+    height: 20px;
+}

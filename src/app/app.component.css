@@ -1,7 +1,7 @@
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
 
 .background{
-  height: 700px;
+  height: 800px;
   background: url("../assets/Images/background.jpg");
   background-position: center; 
 }
