@@ -4,16 +4,21 @@
     <mat-expansion-panel-header>
       {{ cp.make }} {{ cp.model }}
     </mat-expansion-panel-header>
-      <p>Year: {{ cp.year }}</p>
-      <p>Price: {{ cp.price }}</p>
-      <p>Colour: {{ cp.colour }}</p>
-      <p>Fuel: {{ cp.fuel }}</p>
-      <p>Contact Number: {{ cp.phone }}</p>
       <img class = "image" src="{{'data:image/jpg;base64,' + cp.photo}}"/>
+      <div class="info">
+        <p><b>Year:</b> {{ cp.year }}</p>
+        <p><b>Price:</b> {{ cp.price }}</p>
+        <p><b>Colour</b> {{ cp.colour }}</p>
+        <p><b>Fuel:</b> {{ cp.fuel }}</p>
+        <br>
+        <p><b><u>Seller Information</u></b></p>
+        <p><mat-icon>account_box</mat-icon>&nbsp;<b>Seller Name:</b> {{ cp.name }}</p>
+        <p><mat-icon>phone</mat-icon>&nbsp;<b>Contact Number:</b> {{ cp.phone }}</p>
+    </div>
     <mat-action-row>
       <button mat-button color="primary">EDIT</button>
       <button (click)="onDelete(cp._id)" mat-button color="warn">DELETE</button>
     </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion>
-<p *ngIf="carPosts.length <= 0">No Adverts listed yet!</p> 
+<p *ngIf="carPosts.length <= 0">Loading Adverts....please wait!!!</p> 
