@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from "@angular/forms";
+import { Router, ActivatedRoute } from '@angular/router';
 import {PostadvertService} from '../services/postadvert.service';
-import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-edit-car-ad',
@@ -8,41 +10,47 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./edit-car-ad.component.css']
 })
 export class EditCarAdComponent implements OnInit {
+  carPost: any = [];
+  photoBinaryString:string="";
+  // adapted from https://stackoverflow.com/questions/42482951/converting-an-image-to-base64-in-angular-2
+  handleFileSelect(evt){
+    var files = evt.target.files;
+    var file = files[0];
+  
+  if (files && file) {
+      var reader = new FileReader();
 
-  carPosts: any = [];
-  userPosts: any = [];
-  email: any = "";
+      reader.onload =this.handleReaderLoaded.bind(this);
 
-  constructor(private ps:PostadvertService,private route:ActivatedRoute ) { 
-    
+      reader.readAsBinaryString(file);
+  }
+}
+
+handleReaderLoaded(readerEvt) {
+   var binaryString = readerEvt.target.result;
+          //converts string to base 64
+          this.photoBinaryString= btoa(binaryString);
+  }
+
+  constructor(private route: ActivatedRoute,private service:PostadvertService,private router:Router) { 
+    this.router.routeReuseStrategy.shouldReuseRoute = function() {
+      return false;
+  };
   }
 
   ngOnInit() {
-    this.ps.getPostsData().subscribe(data => {
-      this.carPosts = data;
-      this.route.params.subscribe(params=>this.getUserAds(params['email']));//get email parameter from url route
-  });
+    this.service.getPost(this.route.snapshot.params['id']).subscribe(data =>{
+        this.carPost = data;
+    });
+
   }
 
-  
-
-  onDelete(id: string){
-    console.log("Deleting item " + id)
-    this.ps.deletePost(id).subscribe(()=>{
-     window.location.reload()//cant use this.ngOnInit() when using parameters
-    });
-  } 
-  //use url route parameter to add advertisements belonging to same email
-  getUserAds(email: string){
-    this.email = email;
-    console.log(this.email);
-    var userArrayVal=-1;
-    for(var i = 0; i<this.carPosts.length; i++){
-      if(this.carPosts[i].email == this.email){
-        userArrayVal++;
-        this.userPosts[userArrayVal] = this.carPosts[i];
-          console.log(this.userPosts);
-      }
-    }
+  onEditPost(form: NgForm){
+    form.value.photo = this.photoBinaryString;
+    this.service.updateCar(this.carPost._id,form.value.name, form.value.password,form.value.phone,form.value.email, form.value.make, form.value.model, form.value.year, form.value.price, 
+      form.value.colour, form.value.fuel, form.value.photo).subscribe(() =>
+      {
+        this.router.navigate(['/listAds']);
+      });
   }
 }

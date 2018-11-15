@@ -30,4 +30,15 @@ export class PostadvertService {
   deletePost(id: string):Observable<any>{
     return this.http.delete("http://localhost:8081/deletecar/"+id);
   }
+
+  getPost(id: string):Observable<any>{
+    return this.http.get("http://localhost:8081/getcars/"+id);
+  }
+
+  updateCar(id:String, name: string, password:string,phone: number,email: string,make: string, model: string, year: number, price: number, 
+     colour: string, fuel: string,photo: string): Observable<any>{
+    const post: Car = {name: name, password:password,phone:phone, email: email, make: make,
+      model: model, year: year, price: price, colour: colour, fuel: fuel,photo: photo};
+      return this.http.put("http://localhost:8081/getcars/"+id,post)
+  }
 }

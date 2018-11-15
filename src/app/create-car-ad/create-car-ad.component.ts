@@ -34,10 +34,9 @@ handleReaderLoaded(readerEvt) {
   constructor(private service:PostadvertService) { }
 
   onAddPost(form: NgForm) {
+    form.value.photo = this.photoBinaryString;
     this.service.addPost(form.value.name, form.value.password,form.value.phone,form.value.email, form.value.make, form.value.model, form.value.year, form.value.price, 
-      form.value.colour, form.value.fuel, this.photoBinaryString).subscribe();
-    
-    console.log(form.value);
+      form.value.colour, form.value.fuel, form.value.photo).subscribe();
     form.resetForm();
   }
 

@@ -11,6 +11,7 @@ import {PostadvertService} from './services/postadvert.service';
 import { ListAdDetailsComponent } from './list-ad-details/list-ad-details.component';
 import { EditCarAdComponent } from './edit-car-ad/edit-car-ad.component';
 import { LoginComponent } from './login/login.component';
+import { ListUserAdsComponent } from './list-user-ads/list-user-ads.component';
 
 const appRoutes: Routes = [
   {
@@ -26,7 +27,11 @@ const appRoutes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'editAd/:email',//path with parameter
+    path: 'userAds/:email',//path with parameter
+    component: ListUserAdsComponent
+  },
+  {
+    path: 'editAds/:id',//path with parameter
     component: EditCarAdComponent
   }
 ];
@@ -37,7 +42,8 @@ const appRoutes: Routes = [
     CreateCarAdComponent,
     ListAdDetailsComponent,
     EditCarAdComponent,
-    LoginComponent
+    LoginComponent,
+    ListUserAdsComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

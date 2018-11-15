@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
         this.pwFound= true;  
       }
       if(this.emailFound == true && this.pwFound == true){
-        this.router.navigate(['/editAd', this.carPosts[i].email]);
+        this.router.navigate(['/userAds', this.carPosts[i].email]);
       }
     }
   }

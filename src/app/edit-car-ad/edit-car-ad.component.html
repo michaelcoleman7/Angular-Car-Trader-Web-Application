@@ -1,18 +1,18 @@
-<mat-toolbar color="warn">Your Advertisements</mat-toolbar>
-<mat-accordion multi="true" *ngIf="userPosts.length > 0">
-  <mat-expansion-panel *ngFor="let up of userPosts">
-    <mat-expansion-panel-header>
-      {{ up.make }} {{ up.model }}  EMAIL: {{ up.email }}
-    </mat-expansion-panel-header>
-      <p>Year: {{ up.year }}</p>
-      <p>Price: {{ up.price }}</p>
-      <p>Colour: {{ up.colour }}</p>
-      <p>Fuel: {{ up.fuel }}</p>
-      <p>Contact Number: {{ up.phone }}</p>
-    <mat-action-row>
-      <button mat-button color="primary">EDIT</button>
-      <button (click)="onDelete(up._id)" mat-button color="warn">DELETE</button>
-    </mat-action-row>
-  </mat-expansion-panel>
-</mat-accordion>
-<p *ngIf="carPosts.length <= 0">No Adverts listed yet!</p> 
+<div class = "formfield">
+    <img class = "sellerlogo"><br><br>
+      <form (submit)="onEditPost(carPost)" #carPost="ngForm">
+          NAME: <input  type="text" name="name"  ngModel required minlength="2" #name="ngModel">
+          PASSWORD: <input  type="password" name="password"  ngModel={{carPost.name}} required minlength="4" #password="ngModel">
+          PHONE NUMBER: <input  type="text" name="phone"  ngModel={{carPost.name}} required minlength="5" #phone="ngModel">
+          E-MAIL: <input  type="text" name="email"  ngModel={{carPost.name}} required minlength="5" #email="ngModel">
+          MAKE: <input  type="text" name="make"  ngModel={{carPost.name}} required minlength="4" #make="ngModel">
+          MODEL: <input  type="text" name="model"  ngModel={{carPost.name}} required minlength="2" #model="ngModel">
+          YEAR: <br><input  type="text" name="year"  ngModel={{carPost.name}} required minlength="4" #year="ngModel">
+          PRICE: <input type="text" name="price"  ngModel={{carPost.name}} required minlength="1" #price="ngModel">
+          COLOUR: <input  type="text" name="colour"  ngModel={{carPost.name}} required minlength="3" #colour="ngModel">
+          FUEL(PETROL/DIESEL): <input  type="text" ngModel={{carPost.name}} name="fuel" required minlength="6" #fuel="ngModel">
+          IMAGE: <input class="file" type = "file" (change) = "handleFileSelect($event)"name="photo" ngModel={{carPost.photo}} #photo="ngModel">
+
+        <button mat-raised-button type="submit">Update Post</button>
+      </form>
+</div>

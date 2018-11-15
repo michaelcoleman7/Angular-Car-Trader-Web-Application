@@ -101,6 +101,26 @@ app.delete('/deletecar/:id', function(req,res){
     });
 });
 
+app.get('/getcars/:id', function(req,res){
+        console.log("id:"+req.params.id);
+        PostModel.findById(req.params.id,
+            function(req,data){
+                res.json(data);
+        });
+});
+
+app.put('/getcars/:id', function(req,res){
+    console.log("Update Post " +req.params.id);
+    console.log(req.body.name);
+
+    PostModel.findByIdAndUpdate(req.params.id, req.body, 
+        function(err, data){
+            if(err)
+             res.send(err);
+            res.send(data);
+        })
+})
+
 var server = app.listen(8081, function () {
    var host = server.address().address
    var port = server.address().port

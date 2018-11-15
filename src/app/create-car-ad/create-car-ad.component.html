@@ -12,7 +12,7 @@
           PRICE: <input type="text" name="price" placeholder="e.g. 12000" ngModel required minlength="1" #price="ngModel">
           COLOUR: <input  type="text" name="colour" placeholder="e.g. Black" ngModel required minlength="3" #colour="ngModel">
           FUEL(PETROL/DIESEL): <input  type="text" name="fuel" placeholder="e.g. Diesel" ngModel required minlength="6" #fuel="ngModel">
-          IMAGE: <input type = "file" (change) = "handleFileSelect($event)">
+          IMAGE: <input class = "file" type = "file" (change) = "handleFileSelect($event)">
         <button mat-raised-button type="submit">List Advertisement</button>
       </form>
     </mat-card>
