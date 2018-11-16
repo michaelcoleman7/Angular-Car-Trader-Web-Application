@@ -43,9 +43,15 @@ textarea {
 }
 
 button {
+    width: 200px;
     border: none;
     background: rgb(0, 255, 191);
-    border-radius: 20px;
+    border-radius: 100%;
+    margin: -5px -50px; 
+    position:relative;
+    top:50%;
+    left:10%;
+    
 }
 
 button:hover {background-color: rgb(5, 207, 96)}
@@ -59,4 +65,23 @@ button:active {
     background: transparent;
     outline: none;
     height: 20px;
+    margin-bottom: 20px;
+}
+
+.radio{
+    margin-bottom: 10px;
+}
+
+.formInval{
+    font-size: 10px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+.formval{
+    font-size: 10px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    padding-right: 30px;
 }

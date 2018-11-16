@@ -28,7 +28,6 @@ handleReaderLoaded(readerEvt) {
    var binaryString = readerEvt.target.result;
           //converts string to base 64
           this.photoBinaryString= btoa(binaryString);
-          console.log(this.photoBinaryString);
   }
 
   constructor(private service:PostadvertService) { }
@@ -39,8 +38,7 @@ handleReaderLoaded(readerEvt) {
       form.value.colour, form.value.fuel, form.value.photo).subscribe();
     form.resetForm();
   }
-
-
+  
   ngOnInit() {
 
   }

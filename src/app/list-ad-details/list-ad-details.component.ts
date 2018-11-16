@@ -18,11 +18,4 @@ export class ListAdDetailsComponent implements OnInit {
   });
   }
 
-  onDelete(id: string){
-    console.log("Deleting item " + id)
-    this.ps.deletePost(id).subscribe(()=>{
-      this.ngOnInit();
-    });
-  }  
-
 }

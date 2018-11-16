@@ -15,10 +15,6 @@
         <p><mat-icon>account_box</mat-icon>&nbsp;<b>Seller Name:</b> {{ cp.name }}</p>
         <p><mat-icon>phone</mat-icon>&nbsp;<b>Contact Number:</b> {{ cp.phone }}</p>
     </div>
-    <mat-action-row>
-      <button mat-button color="primary">EDIT</button>
-      <button (click)="onDelete(cp._id)" mat-button color="warn">DELETE</button>
-    </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion>
 <p *ngIf="carPosts.length <= 0">Loading Adverts....please wait!!!</p> 
