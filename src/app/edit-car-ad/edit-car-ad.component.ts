@@ -34,9 +34,6 @@ export class EditCarAdComponent implements OnInit {
     }
   
   constructor(private route: ActivatedRoute,private service:PostadvertService,private router:Router) { 
-    this.router.routeReuseStrategy.shouldReuseRoute = function() {
-      return false;
-  };
   }
 
   ngOnInit() {

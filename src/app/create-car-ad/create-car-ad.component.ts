@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
 import {PostadvertService} from '../services/postadvert.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,6 @@ export class CreateCarAdComponent implements OnInit {
     //convert photo into base64
     // adapted from https://stackoverflow.com/questions/42482951/converting-an-image-to-base64-in-angular-2
     handleFileSelect(evt){
-      console.log(evt);
       var files = evt.target.files;//can be found in file(evt) array returned by selecting file, can viewed in console by logging evt
       var file = files[0];
     
@@ -32,13 +32,14 @@ handleReaderLoaded(readerEvt) {
           this.photoBinaryString= btoa(binaryString);
   }
 
-  constructor(private service:PostadvertService) { }
+  constructor(private service:PostadvertService,private router:Router) { }
 
   onAddPost(form: NgForm) {
     form.value.photo = this.photoBinaryString;
     this.service.addPost(form.value.name, form.value.password,form.value.phone,form.value.email, form.value.make, form.value.model, form.value.year, form.value.price, 
       form.value.colour, form.value.fuel, form.value.photo).subscribe();
     form.resetForm();
+    this.router.navigate(['/listAds']);
   }
 
   ngOnInit() {
