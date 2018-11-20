@@ -85,7 +85,7 @@ app.get('/getcars/:id', function(req,res){
         PostModel.findById(req.params.id,
             function(req,data){
                 res.json(data);
-        });
+    });
 });
 
 //Update car by id with new information recieved from user
@@ -95,7 +95,7 @@ app.put('/getcars/:id', function(req,res){
             if(err)
              res.send(err);
             res.send(data);
-        })
+    })
 })
 
 var server = app.listen(8081, function () {

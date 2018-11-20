@@ -18,11 +18,11 @@ export class ListUserAdsComponent implements OnInit {
   }
 
   ngOnInit() {
-    //get all post information from mongodb via service and server and use email parameter to display only ads associated with email
-    this.ps.getPostsData().subscribe(data => {
-      this.carPosts = data;
-      this.route.params.subscribe(params=>this.getUserAds(params['email']));//get email parameter from route
-  });
+      //get all post information from mongodb via service and server and use email parameter to display only ads associated with email
+      this.ps.getPostsData().subscribe(data => {
+        this.carPosts = data;
+        this.route.params.subscribe(params=>this.getUserAds(params['email']));//get email parameter from route
+      });
   }
 
   

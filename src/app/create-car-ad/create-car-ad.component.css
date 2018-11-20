@@ -52,7 +52,9 @@ button {
     left:10%;
 }
 
-button:hover {background-color: rgb(5, 207, 96)}
+button:hover {
+    background-color: rgb(5, 207, 96)
+}
 
 button:active {
     transform: scale(0.8);

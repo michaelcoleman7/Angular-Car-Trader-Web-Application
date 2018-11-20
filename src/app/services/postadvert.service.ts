@@ -8,16 +8,18 @@ import {Car} from '../car.model';
 })
 export class PostadvertService {
   constructor(private http: HttpClient) { }
-    //get all car posts from mongoDB via server
-    getPostsData(): Observable<any> {
-      return this.http.get("http://localhost:8081/getallcars");
-    }
+  
+  //get all car posts from mongoDB via server
+  getPostsData(): Observable<any> {
+    return this.http.get("http://localhost:8081/getallcars");
+  }
 
   private posts: Car[] = [];
 
   getPosts() {
     return [...this.posts];
   }
+
   //add post to mongoDB via server
   addPost(name: string, password:string,phone: number,
     email: string,make: string, model: string, year: number, price: number, 
