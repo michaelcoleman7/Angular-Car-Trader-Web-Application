@@ -6,6 +6,7 @@ img{
 }
 
 .card {
+    border-radius: 20px;
     background: rgb(182, 46, 42);
     width: 25%;
     float: right;
@@ -39,6 +40,6 @@ img{
     overflow:auto;
     float: left;
     width: 72%;
-
+    border-radius: 20px;
     position: absolute;
   }

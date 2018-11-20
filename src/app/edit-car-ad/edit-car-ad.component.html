@@ -12,8 +12,10 @@
           <label>COLOUR:</label> <input  type="text" name="colour"  ngModel={{carPost.name}} required #colour="ngModel">
           <label>FUEL:</label><input type="radio" name="fuel" value="Petrol" ngModel required #fuel="ngModel" checked> Petrol
           <input class = "radio" type="radio" name="fuel" value="Diesel" ngModel required #fuel="ngModel"> Diesel
+          <!--File input to allow image upload-->
           <label>IMAGE:</label> <input class = "file" type = "file" name="photo" (change) = "handleFileSelect($event)" ngModel={{carPost.photo}} required #photo="ngModel">
           <button mat-raised-button type="submit" id = "btn"[disabled]="carPost.invalid">
+              <!--Validation to ensure all information is provided-->
               <p class = "formInval" *ngIf="carPost.invalid">Please provide all information needed </p>
               <p class = "formval" *ngIf="carPost.valid">List Advertisement</p></button>
       </form>

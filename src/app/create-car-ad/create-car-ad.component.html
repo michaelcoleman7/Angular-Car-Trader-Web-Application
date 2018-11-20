@@ -13,8 +13,10 @@
         <label>COLOUR:</label> <input  type="text" name="colour" placeholder="e.g. Black" ngModel required #colour="ngModel">
         <label>FUEL:</label><input type="radio" name="fuel" value="Petrol" ngModel required #fuel="ngModel" checked> Petrol
           <input class = "radio" type="radio" name="fuel" value="Diesel" ngModel required #fuel="ngModel"> Diesel
+          <!--File input to allow image upload-->
         <label>IMAGE:</label> <input class = "file" type = "file" name="photo" (change) = "handleFileSelect($event)" ngModel required #photo="ngModel">
         <button mat-raised-button type="submit" id = "btn"[disabled]="postForm.invalid">
+          <!--Validation to ensure all information is provided-->
           <p class = "formInval" *ngIf="postForm.invalid">Please provide all information needed </p>
           <p class = "formval" *ngIf="postForm.valid">List Advertisement</p></button>
       </form>
