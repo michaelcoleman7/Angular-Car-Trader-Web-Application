@@ -18,28 +18,33 @@ export class ListUserAdsComponent implements OnInit {
   }
 
   ngOnInit() {
+    //get all post information from mongodb via service and server and use email parameter to display only ads associated with email
     this.ps.getPostsData().subscribe(data => {
       this.carPosts = data;
-      this.route.params.subscribe(params=>this.getUserAds(params['email']));//get email parameter from url route
+      this.route.params.subscribe(params=>this.getUserAds(params['email']));//get email parameter from route
   });
   }
 
   
-
+  //delete ad by id using service and refresh page
   onDelete(id: string){
     console.log("Deleting item " + id)
     this.ps.deletePost(id).subscribe(()=>{
-     window.location.reload()//cant use this.ngOnInit() when using parameters
+     window.location.reload();
     });
   } 
-  //use url route parameter to add advertisements belonging to same email
+
+  //use route parameter to add advertisements belonging to same email to new array
   getUserAds(email: string){
     this.email = email;
-    var userArrayVal=-1;
+    var userArrayVal=0;
+
+    //loop through carposts array
     for(var i = 0; i<this.carPosts.length; i++){
+      //if emails match, add item to array at specified position
       if(this.carPosts[i].email == this.email){
-        userArrayVal++;
         this.userPosts[userArrayVal] = this.carPosts[i];
+        userArrayVal++;
       }
     }
   }

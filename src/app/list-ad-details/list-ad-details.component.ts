@@ -13,6 +13,7 @@ export class ListAdDetailsComponent implements OnInit {
   constructor(private ps:PostadvertService) { }
 
   ngOnInit() {
+    //get all post data from mongodb via service and and save to this.carPosts to display ads
     this.ps.getPostsData().subscribe(data => {
       this.carPosts = data;
   });

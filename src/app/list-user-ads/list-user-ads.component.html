@@ -4,7 +4,7 @@
     <mat-expansion-panel-header>
       {{ up.make }} {{ up.model }}
     </mat-expansion-panel-header>
-      <img class = "image" src="{{'data:image/jpg;base64,' + up.photo}}"/>
+      <img class = "image" src="{{'data:image/jpg;base64,' + up.photo}}"/><!--display image(base 64 string(up.photo)) as an image-->
       <div class="info">
         <p><b>Year:</b> {{ up.year }}</p>
         <p><b>Price:</b> {{ up.price }}</p>
@@ -12,11 +12,14 @@
         <p><b>Fuel:</b> {{ up.fuel }}</p>
         <br>
         <p><b><u>Seller Information</u></b></p>
+        <!--mat icons-->
         <p><mat-icon>account_box</mat-icon>&nbsp;<b>Seller Name:</b> {{ up.name }}</p>
         <p><mat-icon>phone</mat-icon>&nbsp;<b>Contact Number:</b> {{ up.phone }}</p>
     </div>
     <mat-action-row>
+      <!--navigate to edit component when button pressed, sending post id as parameter-->
       <button mat-button [routerLink]="['/editAds', up._id]" color="primary">EDIT</button>
+      <!--delete post from mongodb when button pressed-->
       <button (click)="onDelete(up._id)" mat-button color="warn">DELETE</button>
     </mat-action-row>
   </mat-expansion-panel>
