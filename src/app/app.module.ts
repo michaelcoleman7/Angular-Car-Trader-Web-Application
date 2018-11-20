@@ -5,7 +5,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes} from '@angular/router';
 import { FormsModule } from "@angular/forms";
-import { MatInputModule,MatMenuModule,MatCardModule,MatButtonModule,MatIconModule,MatToolbarModule,MatExpansionModule} from '@angular/material';
+import { MatInputModule,MatCardModule,MatButtonModule,MatIconModule,MatToolbarModule,MatExpansionModule} from '@angular/material';
 import { CreateCarAdComponent } from './create-car-ad/create-car-ad.component';
 import {PostadvertService} from './services/postadvert.service';
 import { ListAdDetailsComponent } from './list-ad-details/list-ad-details.component';
@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { ListUserAdsComponent } from './list-user-ads/list-user-ads.component';
 import { HomeComponent } from './home/home.component';
 
+//route paths for navigation
 const appRoutes: Routes = [
   {
     path: 'createAd',
@@ -28,16 +29,21 @@ const appRoutes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'userAds/:email',//path with parameter
+    path: 'userAds/:email',//route path with parameter
     component: ListUserAdsComponent
   },
   {
-    path: 'editAds/:id',//path with parameter
+    path: 'editAds/:id',//route path with parameter
     component: EditCarAdComponent
   },
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path: '**', //catch all other routes not specified and redirect to home
+    redirectTo: '/home', 
+    pathMatch: 'full'
   }
 ];
 
@@ -63,8 +69,7 @@ const appRoutes: Routes = [
     MatCardModule,
     MatButtonModule,
     MatToolbarModule,
-    MatExpansionModule,
-    MatMenuModule
+    MatExpansionModule
   ],
   providers: [PostadvertService],
   bootstrap: [AppComponent]

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {PostadvertService} from '../services/postadvert.service';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +7,9 @@ import {PostadvertService} from '../services/postadvert.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private ps:PostadvertService) { }
-  carPosts: any = [];
+  constructor() { }
 
   ngOnInit() {
-    this.ps.getPostsData().subscribe(data => {
-      this.carPosts = data;
-  });
   }
 
 }

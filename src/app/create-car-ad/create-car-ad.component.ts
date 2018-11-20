@@ -33,13 +33,14 @@ handleReaderLoaded(readerEvt) {
   }
 
   constructor(private service:PostadvertService,private router:Router) { }
-
+  //used when form is submitted by user, to submit info to mongodb via service and server to add new post
   onAddPost(form: NgForm) {
     form.value.photo = this.photoBinaryString;
     this.service.addPost(form.value.name, form.value.password,form.value.phone,form.value.email, form.value.make, form.value.model, form.value.year, form.value.price, 
       form.value.colour, form.value.fuel, form.value.photo).subscribe();
     form.resetForm();
-    this.router.navigate(['/listAds']);
+    //navigate to home page
+    this.router.navigate(['/home']);
   }
 
   ngOnInit() {

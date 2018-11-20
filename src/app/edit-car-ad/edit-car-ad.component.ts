@@ -37,18 +37,20 @@ export class EditCarAdComponent implements OnInit {
   }
 
   ngOnInit() {
+    //use activated route to get id(as parameter) from route to allow edit of post
     this.service.getPost(this.route.snapshot.params['id']).subscribe(data =>{
         this.carPost = data;
     });
 
   }
-
+  //used when form is submitted by user, to submit info to  mongodb via service and server to edit current post
   onEditPost(form: NgForm){
     form.value.photo = this.photoBinaryString;
     this.service.updateCar(this.carPost._id,form.value.name, form.value.password,form.value.phone,form.value.email, form.value.make, form.value.model, form.value.year, form.value.price, 
       form.value.colour, form.value.fuel, form.value.photo).subscribe(() =>
       {
-        this.router.navigate(['/listAds']);
+        //navigate to home page
+        this.router.navigate(['/home']);
       });
   }
 }
