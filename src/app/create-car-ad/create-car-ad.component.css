@@ -12,7 +12,6 @@
     padding: 30px 70px;
     font-family: "Sans-Serif";
     font-size: 12px;
-    position: absolute;
 }
 
 .sellerlogo{
@@ -51,7 +50,6 @@ button {
     position:relative;
     top:50%;
     left:10%;
-    
 }
 
 button:hover {background-color: rgb(5, 207, 96)}
