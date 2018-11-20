@@ -1,6 +1,6 @@
 .formfield{
     width: 450px;
-    height: 220px;
+    height: 250px;
     border-radius: 10%;
     background: #0a5cd8be;
     color: #fff;
@@ -46,4 +46,8 @@ button:hover {background-color: rgb(5, 207, 96)}
 
 button:active {
     transform: scale(0.8);
+}
+
+.incorrectLogin{
+    font-size: 12px;
 }

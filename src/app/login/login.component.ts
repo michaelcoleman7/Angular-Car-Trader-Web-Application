@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
   carPosts: any = [];
   emailFound = false;
   pwFound = false;
+  incorrectLogin: string ="";
 
 
   constructor(private ps:PostadvertService, private router: Router) { }
@@ -36,7 +37,9 @@ export class LoginComponent implements OnInit {
       if(this.emailFound == true && this.pwFound == true){
         this.router.navigate(['/userAds', this.carPosts[i].email]);
       }
-      //else ----------------------------------------------------------------------------
+      else{
+        this.incorrectLogin = "email or password is not valid";
+      }
     }
   }
 
