@@ -2,11 +2,10 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
-//connect to mongoDB
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb://CarUser:cardb1@ds125263.mlab.com:25263/car-db';
+var mongoDB = 'mongodb://CarUser:cardb1@ds125263.mlab.com:25263/car-db'; //connect to mlab with username,password and database
 mongoose.connect(mongoDB);
-
+//create schema
 var Schema = mongoose.Schema;
 var carSchema = new Schema({
     name: String,
@@ -21,9 +20,10 @@ var carSchema = new Schema({
     fuel: String,
     photo: String
 })
-
+//create postmodel
 var PostModel = mongoose.model('cars', carSchema);
 
+//headers
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS")
@@ -34,7 +34,6 @@ app.use(function(req, res, next) {
 
 //return JSON data when requested 
 app.get('/getallcars', function (req, res) {
-
     PostModel.find(function(err, data){
         if (err){
             res.send(err);
@@ -44,34 +43,13 @@ app.get('/getallcars', function (req, res) {
 })
 
 //Here we are configuring express to use body-parser as middle-ware. 
-//app.use(bodyParser.urlencoded({ extended: false })); 
-//app.use(bodyParser.json());
-
-//allow for image to be passed in json as base64
-app.use(bodyParser.json({
-    limit: "50mb"
-}));
-app.use(bodyParser.urlencoded({
-    limit: "50mb",
-    extended: false,
-    parameterLimit: 50000
-}));
+app.use(bodyParser.urlencoded({ extended: false })); 
+app.use(bodyParser.json());
 
 //Post Json to mongoDB
 app.post('/postcar', function (req, res) {
-    /*console.log("Name = " + req.body.name);
-    console.log("Password = " + req.body.password);
-    console.log("phone = " + req.body.phone);
-    console.log("email = " + req.body.email);
-    console.log("Make = " + req.body.make);
-    console.log("Model = " + req.body.model);
-    console.log("Year = " + req.body.year);
-    console.log("Price = " + req.body.price);
-    console.log("Colour = " + req.body.colour);
-    console.log("Fuel  = " + req.body.fuel);
-    //console.log("Photo  = " + req.body.photo);*/
 
-    //mongo post
+    //create post and send to mongoDB
     PostModel.create({
         name: req.body.name,
         password: req.body.password,
@@ -91,6 +69,7 @@ app.post('/postcar', function (req, res) {
     res.send("Car added Successfully");
 })
 
+//delete car using id from MongoDB
 app.delete('/deletecar/:id', function(req,res){
     console.log(req.params.id);
     PostModel.deleteOne({ _id: req.params.id },
@@ -101,18 +80,16 @@ app.delete('/deletecar/:id', function(req,res){
     });
 });
 
+//get car by id from MondoDB
 app.get('/getcars/:id', function(req,res){
-        console.log("id:"+req.params.id);
         PostModel.findById(req.params.id,
             function(req,data){
                 res.json(data);
         });
 });
 
+//Update car by id with new information recieved from user
 app.put('/getcars/:id', function(req,res){
-    console.log("Update Post " +req.params.id);
-    console.log(req.body.name);
-
     PostModel.findByIdAndUpdate(req.params.id, req.body, 
         function(err, data){
             if(err)
