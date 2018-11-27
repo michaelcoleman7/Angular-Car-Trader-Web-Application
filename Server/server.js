@@ -98,6 +98,11 @@ app.put('/getcars/:id', function(req,res){
     })
 })
 
+app.use("/", express.static(path.join(__dirname, "angular")));
+app.get('/',function(req, res){
+res.sendFile(path.join(__dirname, "angular", "index.html"));
+})
+
 var server = app.listen(8081, function () {
    var host = server.address().address
    var port = server.address().port
